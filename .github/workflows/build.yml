@@ -1,0 +1,21 @@
+name: Windows CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore and build
+        run: msbuild .\Contoso.LegacyBank.Batch.sln /t:Restore,Build /p:Configuration=Release /m
+
+      - name: Run parser, validation, and integration tests
+        run: .\tests\Contoso.LegacyBank.Batch.Tests\bin\Release\Contoso.LegacyBank.Batch.Tests.exe
