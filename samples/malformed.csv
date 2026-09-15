@@ -1,3 +1,3 @@
 ExternalId,AccountNumber,PostedDate,Description,Amount,TransactionType
-MALFORMED-1001,10000001,2026-09-15,"Unterminated description,10.00,Deposit
-MALFORMED-1002,10000001,2026-09-15,Missing columns
+MALFORMED-1001,CHK-10010001,2026-09-15,"Unterminated description,10.00,Deposit
+MALFORMED-1002,CHK-10010001,2026-09-15,Missing columns

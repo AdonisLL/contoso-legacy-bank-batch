@@ -39,4 +39,9 @@ The client uses `BasicHttpBinding` without transport security at:
 http://localhost:8090/AccountService
 ```
 
-Contract namespace is `http://tempuri.org/`; action is `http://tempuri.org/IAccountService/ImportTransaction`. The request sends `ExternalId`, `AccountNumber`, `PostedDate`, `Description`, positive `Amount`, and normalized `TransactionType`. The response contains `Accepted`, `Duplicate`, and `Message`. Change `AccountService.cs` if the deployed Accounts service uses a generated contract with different data-contract namespaces.
+The committed generated-style client matches the Accounts service contract
+namespace `urn:contoso:legacy-bank:accounts:v1`. It maps deposits to positive
+`Credit` transactions and withdrawals to negative `Debit` transactions.
+Successful calls return the imported transaction DTO. A typed
+`DuplicateExternalId` fault is mapped to the reconciliation duplicate count;
+other faults remain explicit failures.

@@ -1,4 +1,4 @@
 ExternalId,AccountNumber,PostedDate,Description,Amount,TransactionType
-PARTIAL-1001,10000001,2026-09-15,Valid deposit,50.00,Deposit
-PARTIAL-1002,10000001,09/15/2026,Invalid date,10.00,Withdrawal
-PARTIAL-1003,10000001,2026-09-15,Valid withdrawal,5.00,Withdrawal
+PARTIAL-1001,CHK-10010001,2026-09-15,Valid deposit,50.00,Deposit
+PARTIAL-1002,CHK-10010001,09/15/2026,Invalid date,10.00,Withdrawal
+PARTIAL-1003,CHK-10010001,2026-09-15,Valid withdrawal,5.00,Withdrawal

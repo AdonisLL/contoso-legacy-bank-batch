@@ -267,15 +267,24 @@ namespace Contoso.LegacyBank.Batch.Tests
 
         public int CallCount { get; private set; }
 
-        public ImportTransactionResponse ImportTransaction(ImportTransactionRequest request)
+        public TransactionDto ImportTransaction(ImportTransactionRequest request)
         {
             CallCount++;
             if (!externalIds.Add(request.ExternalId))
             {
-                return new ImportTransactionResponse { Duplicate = true, Message = "Duplicate ExternalId." };
+                throw new FaultException<AccountFault>(
+                    new AccountFault { Code = "DuplicateExternalId", Message = "Duplicate ExternalId." });
             }
 
-            return new ImportTransactionResponse { Accepted = true, Message = "Imported." };
+            return new TransactionDto
+            {
+                ExternalId = request.ExternalId,
+                AccountNumber = request.AccountNumber,
+                PostedUtc = request.PostedUtc,
+                Description = request.Description,
+                Amount = request.Amount,
+                TransactionType = request.TransactionType
+            };
         }
     }
 }

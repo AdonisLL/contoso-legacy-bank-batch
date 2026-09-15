@@ -1,3 +1,3 @@
 ExternalId,AccountNumber,PostedDate,Description,Amount,TransactionType
-VALID-1001,10000001,2026-09-15,Payroll deposit,2500.00,Deposit
-VALID-1002,10000001,2026-09-15,Utility payment,125.45,Withdrawal
+VALID-1001,CHK-10010001,2026-09-15,Payroll deposit,2500.00,Deposit
+VALID-1002,CHK-10010001,2026-09-15,Utility payment,125.45,Withdrawal
