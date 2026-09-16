@@ -1,0 +1,94 @@
+{
+  "input_name": "CWE - File & Path Security",
+  "analysis_method": "LLM",
+  "status": "success",
+  "result": {
+    "finding": "Assessed 5 CWE rules in File & Path Security: 3 FOUND, 2 NOT_FOUND",
+    "confidence": "high",
+    "evidence": [
+      "Scanned application source files for file & path security patterns"
+    ],
+    "values": [
+      {
+        "id": "CWE-22",
+        "name": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+        "status": "FOUND",
+        "category": "File & Path Security",
+        "severity": "optional",
+        "storyPoint": 8,
+        "description": "The product uses external input to construct a pathname that is intended to identify a file or directory that is located underneath a restricted parent directory, but the product does not properly neutralize special elements within the pathname that can cause the pathname to resolve to a location that is outside of the restricted directory.",
+        "evidence": {
+          "files": [
+            "src/Contoso.LegacyBank.Batch/BatchSettings.cs:20",
+            "src/Contoso.LegacyBank.Batch/BatchSettings.cs:30"
+          ],
+          "explanation": "BatchSettings.Load reads directory names from appSettings and uses Path.Combine(root, configuredName) for InputDirectory, ArchiveDirectory, ErrorDirectory, and ReportsDirectory without validating that the resulting paths remain below RootDirectory. A configured traversal or absolute segment can resolve outside the intended batch root."
+        }
+      },
+      {
+        "id": "CWE-23",
+        "name": "Relative Path Traversal",
+        "status": "FOUND",
+        "category": "File & Path Security",
+        "severity": "optional",
+        "storyPoint": 5,
+        "description": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as .. that can resolve to a location that is outside of that directory.",
+        "evidence": {
+          "files": [
+            "src/Contoso.LegacyBank.Batch/BatchSettings.cs:30",
+            "src/Contoso.LegacyBank.Batch/BatchSettings.cs:31",
+            "src/Contoso.LegacyBank.Batch/BatchSettings.cs:32",
+            "src/Contoso.LegacyBank.Batch/BatchSettings.cs:33"
+          ],
+          "explanation": "BatchSettings.Load combines RootDirectory with appSettings values for the directory name settings without rejecting '..' segments, so values such as '..\\Outside' can create input/archive/error/report directories outside the configured batch root."
+        }
+      },
+      {
+        "id": "CWE-36",
+        "name": "Absolute Path Traversal",
+        "status": "FOUND",
+        "category": "File & Path Security",
+        "severity": "optional",
+        "storyPoint": 5,
+        "description": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as /abs/path that can resolve to a location that is outside of that directory.",
+        "evidence": {
+          "files": [
+            "src/Contoso.LegacyBank.Batch/BatchSettings.cs:30",
+            "src/Contoso.LegacyBank.Batch/BatchSettings.cs:31",
+            "src/Contoso.LegacyBank.Batch/BatchSettings.cs:32",
+            "src/Contoso.LegacyBank.Batch/BatchSettings.cs:33"
+          ],
+          "explanation": "BatchSettings.Load passes configured directory name values directly to Path.Combine. In .NET, an absolute second path causes Path.Combine to discard the root prefix, allowing configured absolute paths to escape the intended RootDirectory."
+        }
+      },
+      {
+        "id": "CWE-434",
+        "name": "Unrestricted Upload of File with Dangerous Type",
+        "status": "NOT_FOUND",
+        "category": "File & Path Security",
+        "severity": "mandatory",
+        "storyPoint": 8,
+        "description": "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
+        "evidence": {
+          "files": [],
+          "explanation": ""
+        }
+      },
+      {
+        "id": "CWE-611",
+        "name": "Improper Restriction of XML External Entity Reference",
+        "status": "NOT_FOUND",
+        "category": "File & Path Security",
+        "severity": "optional",
+        "storyPoint": 5,
+        "description": "The product processes an XML document that can contain XML entities with URIs that resolve to documents outside of the intended sphere of control, causing the product to embed incorrect documents into its output.",
+        "evidence": {
+          "files": [],
+          "explanation": ""
+        }
+      }
+    ]
+  },
+  "execution_time_seconds": 0,
+  "timestamp": "2026-09-16T00:46:53.751650Z"
+}
