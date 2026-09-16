@@ -1,0 +1,431 @@
+{
+  "version": "1.0.0",
+  "producer": ".NET AppCAT CLI",
+  "metadata": {
+    "analysisStartTime": "2026-09-16T04:23:17.3023859Z",
+    "analysisEndTime": "2026-09-16T04:23:18.6427383Z",
+    "privacyMode": "Restricted",
+    "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2271074",
+    "targetIds": [
+      "AppService.Windows",
+      "AppService.Linux",
+      "AKS.Linux",
+      "AKS.Windows",
+      "ACA",
+      "AppServiceContainer.Linux",
+      "AppServiceContainer.Windows",
+      "AppServiceManagedInstance.Windows"
+    ],
+    "targetDisplayNames": [
+      "Azure App Service (Windows)",
+      "Azure App Service (Linux)",
+      "Azure Kubernetes Service (Linux)",
+      "Azure Kubernetes Service (Windows)",
+      "Azure Container Apps",
+      "Azure App Service Container (Linux)",
+      "Azure App Service Container (Windows)",
+      "Azure App Service Managed Instance (Windows)"
+    ],
+    "os": [
+      "windows",
+      "linux"
+    ]
+  },
+  "summary": {
+    "totalProjects": 2,
+    "totalIssues": 3,
+    "totalIncidents": 4,
+    "totalEffort": 6,
+    "charts": {
+      "severity": {
+        "mandatory": 1,
+        "optional": 1,
+        "potential": 2,
+        "information": 0
+      },
+      "category": {
+        "Local": 3,
+        "Security": 1
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "src/Contoso.LegacyBank.Batch/Contoso.LegacyBank.Batch.csproj",
+      "issues": 3,
+      "storyPoints": 5,
+      "properties": {
+        "appName": "Contoso.LegacyBank.Batch",
+        "frameworks": [
+          ".NETFramework,Version=v4.8"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ]
+      },
+      "incidents": [
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "e21b4b18-2040-458a-97ab-b5872b9bcf96",
+          "location": "src/Contoso.LegacyBank.Batch/BatchSettings.cs",
+          "locationKind": "File",
+          "line": 19,
+          "column": 91,
+          "targets": {
+            "AppService.Windows": {
+              "severity": "mandatory",
+              "effort": 1
+            },
+            "AppService.Linux": {
+              "severity": "mandatory",
+              "effort": 1
+            },
+            "AKS.Linux": {
+              "severity": "mandatory",
+              "effort": 1
+            },
+            "AKS.Windows": {
+              "severity": "information",
+              "effort": 1
+            },
+            "ACA": {
+              "severity": "mandatory",
+              "effort": 1
+            },
+            "AppServiceContainer.Linux": {
+              "severity": "mandatory",
+              "effort": 1
+            },
+            "AppServiceContainer.Windows": {
+              "severity": "information",
+              "effort": 1
+            },
+            "AppServiceManagedInstance.Windows": {
+              "severity": "potential",
+              "effort": 1
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "f815eac1-b18d-41cc-88cd-1dbeadf4042e",
+          "location": "src/Contoso.LegacyBank.Batch/BatchSettings.cs",
+          "locationKind": "File",
+          "line": 33,
+          "column": 79,
+          "targets": {
+            "AppService.Windows": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "AppService.Linux": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "AKS.Linux": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "AKS.Windows": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "ACA": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "AppServiceContainer.Linux": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "AppServiceContainer.Windows": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "AppServiceManagedInstance.Windows": {
+              "severity": "potential",
+              "effort": 1
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0002",
+          "incidentId": "c802b672-a8be-4969-85f3-426d2a7a2715",
+          "location": "src/Contoso.LegacyBank.Batch/App.config",
+          "locationKind": "File",
+          "targets": {
+            "AppService.Windows": {
+              "severity": "optional",
+              "effort": 3
+            },
+            "AppService.Linux": {
+              "severity": "optional",
+              "effort": 3
+            },
+            "AKS.Linux": {
+              "severity": "optional",
+              "effort": 3
+            },
+            "AKS.Windows": {
+              "severity": "optional",
+              "effort": 3
+            },
+            "ACA": {
+              "severity": "optional",
+              "effort": 3
+            },
+            "AppServiceContainer.Linux": {
+              "severity": "optional",
+              "effort": 3
+            },
+            "AppServiceContainer.Windows": {
+              "severity": "optional",
+              "effort": 3
+            },
+            "AppServiceManagedInstance.Windows": {
+              "severity": "optional",
+              "effort": 3
+            }
+          },
+          "labels": []
+        }
+      ]
+    },
+    {
+      "path": "tests/Contoso.LegacyBank.Batch.Tests/Contoso.LegacyBank.Batch.Tests.csproj",
+      "issues": 1,
+      "storyPoints": 1,
+      "properties": {
+        "appName": "Contoso.LegacyBank.Batch.Tests",
+        "frameworks": [
+          ".NETFramework,Version=v4.8"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ]
+      },
+      "incidents": [
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "03bf8bba-1e01-400d-aa18-f34935e02f5e",
+          "location": "tests/Contoso.LegacyBank.Batch.Tests/Program.cs",
+          "locationKind": "File",
+          "line": 126,
+          "column": 35,
+          "targets": {
+            "AppService.Windows": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "AppService.Linux": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "AKS.Linux": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "AKS.Windows": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "ACA": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "AppServiceContainer.Linux": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "AppServiceContainer.Windows": {
+              "severity": "potential",
+              "effort": 1
+            },
+            "AppServiceManagedInstance.Windows": {
+              "severity": "potential",
+              "effort": 1
+            }
+          },
+          "labels": []
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "Local.0002": {
+      "id": "Local.0002",
+      "description": "Your application has hardcoded local or network paths that might not be available on Azure.\n\nReview and ensure that you are attempting to access paths that would be available when your application lives in Azure.\n\n Application should use paths relative to application root folder or store them in Azure Storage or Azure CDN.",
+      "title": "Hardcoded local or network paths detected",
+      "severity": "mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Azure Storage",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2243159"
+        },
+        {
+          "title": "Azure CDN",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2251637"
+        },
+        {
+          "title": "Design to scale out",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2251007"
+        }
+      ],
+      "labels": []
+    },
+    "Local.0006": {
+      "id": "Local.0006",
+      "description": "Your application has hardcoded URLs that might correspond to services that are not accessible on Azure.\n\nReview and ensure that the application is attempting to access URLs that would be available from Azure. You might need to migrate those services to Azure too, this way you will get the benefit of lower latency in the cloud.\n\nIf your application needs to depend on services that run on-premises, you can connect your Azure and local networks with ExpressRoute, Hybrid Connections, or VPN solutions.",
+      "title": "Hardcoded URLs detected",
+      "severity": "potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "ExpressRoute",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2250577"
+        },
+        {
+          "title": "Hybrid Connections",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2242588"
+        },
+        {
+          "title": "Connect an on-prem network",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2242591"
+        }
+      ],
+      "labels": []
+    },
+    "Security.0002": {
+      "id": "Security.0002",
+      "description": "Connection strings without configuration builders detected.  \n\n Keeping connection strings directly in the app is not the best practice and might introduce security risks, increased maintenance, scalability challenges or compliance standards (such as PCI DSS, GDPR, etc.). \n\n Instead, it is recommended to use configuration builders to get secrets from secure sources in Azure environment.",
+      "title": "Connection strings without configuration builders detected",
+      "severity": "optional",
+      "effort": 3,
+      "links": [
+        {
+          "title": "Configuration builders",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2250915"
+        },
+        {
+          "title": "Storing application secrets",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2250916"
+        },
+        {
+          "title": "Centralized app configuration and security",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2250733"
+        }
+      ],
+      "labels": []
+    }
+  },
+  "security": [
+    {
+      "id": "CWE-606",
+      "title": "Unchecked Input for Loop Condition",
+      "category": "Code Quality",
+      "severity": "potential",
+      "description": "The product does not properly check inputs that are used for loop conditions, potentially leading to a denial of service or other consequences because of excessive looping.",
+      "evidence": {
+        "files": [
+          "src/Contoso.LegacyBank.Batch/CsvParser.cs"
+        ],
+        "explanation": "CsvParser.Parse uses the unbounded number of rows in an externally supplied CSV file as the loop limit at line 53, with no row-count or file-size limit before processing."
+      },
+      "storyPoint": 3
+    },
+    {
+      "id": "CWE-789",
+      "title": "Memory Allocation with Excessive Size Value",
+      "category": "Code Quality",
+      "severity": "potential",
+      "description": "The product allocates memory based on an untrusted, large size value, but it does not ensure that the size is within expected limits, allowing arbitrary amounts of memory to be allocated.",
+      "evidence": {
+        "files": [
+          "src/Contoso.LegacyBank.Batch/CsvParser.cs"
+        ],
+        "explanation": "CsvParser.Parse calls File.ReadAllLines at line 23 on an externally supplied CSV file without first limiting its size, causing the complete input and all lines to be allocated in memory."
+      },
+      "storyPoint": 5
+    },
+    {
+      "id": "CWE-778",
+      "title": "Insufficient Logging",
+      "category": "Credentials & Secrets",
+      "severity": "potential",
+      "description": "When a security-critical event occurs, the product either does not record the event or omits important details about the event when logging it.",
+      "evidence": {
+        "files": [
+          "src/Contoso.LegacyBank.Batch/BatchProcessor.cs"
+        ],
+        "explanation": "BatchProcessor.ProcessFile increments only DuplicateCount at lines 93-96 when the account service reports a duplicate ExternalId; it records no row-level entry identifying the duplicate event or affected ExternalId."
+      },
+      "storyPoint": 3
+    },
+    {
+      "id": "CWE-22",
+      "title": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+      "category": "File & Path Security",
+      "severity": "optional",
+      "description": "The product uses external input to construct a pathname that is intended to identify a file or directory that is located underneath a restricted parent directory, but the product does not properly neutralize special elements within the pathname that can cause the pathname to resolve to a location that is outside of the restricted directory.",
+      "evidence": {
+        "files": [
+          "src/Contoso.LegacyBank.Batch/BatchSettings.cs"
+        ],
+        "explanation": "BatchSettings.Load reads configurable directory names and passes them directly as the second argument to Path.Combine at lines 30-33 without checking that the resulting paths remain under RootDirectory."
+      },
+      "storyPoint": 8
+    },
+    {
+      "id": "CWE-23",
+      "title": "Relative Path Traversal",
+      "category": "File & Path Security",
+      "severity": "optional",
+      "description": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as .. that can resolve to a location that is outside of that directory.",
+      "evidence": {
+        "files": [
+          "src/Contoso.LegacyBank.Batch/BatchSettings.cs"
+        ],
+        "explanation": "BatchSettings.Load accepts configured directory names containing relative traversal segments such as '..' at lines 30-33, allowing the resulting Input, Archive, Error, or Reports path to escape RootDirectory."
+      },
+      "storyPoint": 5
+    },
+    {
+      "id": "CWE-36",
+      "title": "Absolute Path Traversal",
+      "category": "File & Path Security",
+      "severity": "optional",
+      "description": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as /abs/path that can resolve to a location that is outside of that directory.",
+      "evidence": {
+        "files": [
+          "src/Contoso.LegacyBank.Batch/BatchSettings.cs"
+        ],
+        "explanation": "BatchSettings.Load does not reject rooted values for the configured directory-name settings at lines 30-33; Path.Combine discards RootDirectory when its second argument is absolute."
+      },
+      "storyPoint": 5
+    },
+    {
+      "id": "CWE-99",
+      "title": "Improper Control of Resource Identifiers ('Resource Injection')",
+      "category": "Injection Attacks",
+      "severity": "potential",
+      "description": "The product receives input from an upstream component, but it does not restrict or incorrectly restricts the input before it is used as an identifier for a resource that may be outside the intended sphere of control.",
+      "evidence": {
+        "files": [
+          "src/Contoso.LegacyBank.Batch/BatchSettings.cs",
+          "src/Contoso.LegacyBank.Batch/AccountService.cs"
+        ],
+        "explanation": "BatchSettings.Load accepts an unrestricted absolute AccountServiceEndpoint at line 34; AccountTransactionGateway then uses that URI as the WCF EndpointAddress at line 87, allowing configuration input to select an unintended network resource."
+      },
+      "storyPoint": 3
+    }
+  ]
+}
