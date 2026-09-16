@@ -830,8 +830,8 @@ function updateDonuts(domainCrits) {
   var container = document.getElementById('donut-container');
   if (!container) return;
   container.innerHTML = '';
-  var domainNames = {'cloud-readiness':'Cloud Readiness','java-upgrade':'Java Upgrade','dotnet-upgrade':'DotNET Upgrade','security':'Security'};
-  var domainOrder = ['cloud-readiness','java-upgrade','dotnet-upgrade','security'];
+  var domainNames = {'cloud-readiness':'Cloud Readiness','security':'Security'};
+  var domainOrder = ['cloud-readiness','security'];
   for (var d = 0; d < domainOrder.length; d++) {
     var key = domainOrder[d];
     var c = domainCrits[key];
