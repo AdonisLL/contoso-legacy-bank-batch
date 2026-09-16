@@ -1,0 +1,70 @@
+{
+  "GeneratedAt": "2026-09-16T16:13:52.817Z",
+  "ProjectPath": ".",
+  "Summary": {
+    "TotalFindings": 4,
+    "CveCount": 0,
+    "CweCount": 4,
+    "BySeverity": {
+      "optional": 3,
+      "potential": 1
+    },
+    "ByCategory": {
+      "File & Path Security": 3,
+      "Injection Attacks": 1
+    },
+    "TotalRulesAssessed": 59,
+    "RulesPassed": 55
+  },
+  "CveFindings": [],
+  "CweFindings": [
+    {
+      "Id": "CWE-22",
+      "Name": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+      "Category": "File & Path Security",
+      "Severity": "optional",
+      "StoryPoint": 8,
+      "Description": "The product uses external input to construct a pathname that is intended to identify a file or directory that is located underneath a restricted parent directory, but the product does not properly neutralize special elements within the pathname that can cause the pathname to resolve to a location that is outside of the restricted directory.",
+      "Files": [
+        "src/Contoso.LegacyBank.Batch/BatchSettings.cs:30"
+      ],
+      "Explanation": "BatchSettings.Load combines the configured InputDirectoryName with RootDirectory at line 30 without validating that the resolved path remains beneath the configured root."
+    },
+    {
+      "Id": "CWE-23",
+      "Name": "Relative Path Traversal",
+      "Category": "File & Path Security",
+      "Severity": "optional",
+      "StoryPoint": 5,
+      "Description": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as .. that can resolve to a location that is outside of that directory.",
+      "Files": [
+        "src/Contoso.LegacyBank.Batch/BatchSettings.cs:30"
+      ],
+      "Explanation": "BatchSettings.Load accepts a configured directory name containing relative traversal segments when constructing InputDirectory at line 30."
+    },
+    {
+      "Id": "CWE-36",
+      "Name": "Absolute Path Traversal",
+      "Category": "File & Path Security",
+      "Severity": "optional",
+      "StoryPoint": 5,
+      "Description": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as /abs/path that can resolve to a location that is outside of that directory.",
+      "Files": [
+        "src/Contoso.LegacyBank.Batch/BatchSettings.cs:30"
+      ],
+      "Explanation": "BatchSettings.Load passes a configured directory name directly to Path.Combine at line 30, allowing a rooted path to replace the configured root."
+    },
+    {
+      "Id": "CWE-99",
+      "Name": "Improper Control of Resource Identifiers ('Resource Injection')",
+      "Category": "Injection Attacks",
+      "Severity": "potential",
+      "StoryPoint": 3,
+      "Description": "The product receives input from an upstream component, but it does not restrict or incorrectly restricts the input before it is used as an identifier for a resource that may be outside the intended sphere of control.",
+      "Files": [
+        "src/Contoso.LegacyBank.Batch/BatchSettings.cs:34"
+      ],
+      "Explanation": "BatchSettings.Load constructs the WCF AccountServiceEndpoint URI from an unrestricted application configuration value at line 34."
+    }
+  ]
+}
