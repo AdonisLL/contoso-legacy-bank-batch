@@ -17,11 +17,14 @@
       "AppServiceManagedInstance.Windows"
     ],
     "targetDisplayNames": [
-      "Azure App Service",
-      "Azure Kubernetes Service",
+      "Azure App Service (Windows)",
+      "Azure App Service (Linux)",
+      "Azure Kubernetes Service (Linux)",
+      "Azure Kubernetes Service (Windows)",
       "Azure Container Apps",
-      "Azure App Service Container",
-      "Azure App Service Managed Instance"
+      "Azure App Service Container (Linux)",
+      "Azure App Service Container (Windows)",
+      "Azure App Service Managed Instance (Windows)"
     ],
     "os": [
       "windows",
